@@ -95,6 +95,8 @@ Once these packages are installed, first you must run the script installation.py
 After that, the appChessOnline.py script is executed to run the web application for chess endings training.
 
 ## COMMAND TO RUN THE CHESSONLINEALFARNEDO WEB APPLICATION YOURSELF 
+First you must run the script installation.py in order to have the database and the necessary tables, for the web application. Fo this, you must write to the terminal, specifically in the directory where the file installation.py is located, the following command `python installation.py`. 
+
 To run the web application you must write to the terminal, specifically in the directory where the file appChessNew.py is located, the following command `python appChessOnline.py`. 
 
 Example of a directory: `c/Users/Usuario/Documents/ChessOnlineAlfarnedo`
