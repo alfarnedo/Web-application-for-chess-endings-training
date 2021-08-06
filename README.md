@@ -92,7 +92,24 @@ Once these packages are installed, first you must run the script installation.py
 
 After that, the appChessOnline.py script is executed to run the web application for chess endings training.
 
+## COMMAND TO RUN THE CHESSONLINEALFARNEDO WEB APPLICATION YOURSELF 
+To run the web application you must write to the terminal, specifically in the directory where the file appChessNew.py is located, the following command `python appChessOnline.py`. 
 
+Example of a directory: `c/Users/Usuario/Documents/ChessOnlineAlfarnedo`
+
+## PARTICIPATING IN THE PROJECT
+If you want to help improve the code, feel free to do so; as long as it is under the GPL v3 license.
+
+Together we can create a great web application for learning chess endings
+
+## LICENCE
+**ChessOnlineAlfarnedo** is free, and distributed under the **GNU General Public License version 3 (GPL v3)**. 
+
+This **GNU General Public License version 3 (GPL v3)** implies that it offers free access and use. This code can also be distributed among people, made available so that it can be downloaded from another website, sold (either alone or as part of a larger software package), or used as a starting point for a software project of your own. 
+
+However, this license has some limitation in the distribution of the code since to be able to distribute it must always include the complete source code, or a pointer to where the source code can be found, to generate the exact binary you are distributing. Likewise, if any changes are made to the source code, it must also be made available under the GPL v3 licence.
+
+For full details, read the copy of the GPL v3 found in the file named [*LICENCE*](https://github.com/alfarnedo/Web-application-for-chess-endings-training/blob/master/LICENCE)
 
 
 
