@@ -63,7 +63,7 @@ The distribution of ChessOnlineAlfarnedo project consists of the following files
   * Readme.md, the file you are currently reading.
   * LICENSE, a file that contains the GNU General Public License version 3.
   * AUTHORS, a text file with the list of authors for the Project
-  * src, a subdirectory containing the full source code. 
+  * src, a subdirectory containing the full source code. The following figure shows the structure of folders and files contained in the src subdirectory
 
 
 ## PRE-REQUISITES
