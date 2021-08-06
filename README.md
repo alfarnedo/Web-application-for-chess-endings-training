@@ -74,7 +74,7 @@ The following packages must be installed on the computer where the web applicati
     The computer where the project was developed has version Python 3.8.1. 
   * #### MySQL database
     You need to install MySQL on your computer in order to perform certain actions during the development of the web application.     
-    To do this, you can follow this tutorial from youtube: https://www.youtube.com/watch?v=jkyLOV54BQM  
+    To do this, you can follow this tutorial from youtube: [*MYSQL TUTORIAL*](https://www.youtube.com/watch?v=jkyLOV54BQM)   
     
     Once you have it installed, in the script installation.py (in the line of code number 19) and in the script appChessOnline.py (in the line of code number 51) you must type the password that you have set during the tutorial to be able to access MySQL.
     
