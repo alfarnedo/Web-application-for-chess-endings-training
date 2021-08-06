@@ -109,7 +109,7 @@ This **GNU General Public License version 3 (GPL v3)** implies that it offers fr
 
 However, this license has some limitation in the distribution of the code since to be able to distribute it must always include the complete source code, or a pointer to where the source code can be found, to generate the exact binary you are distributing. Likewise, if any changes are made to the source code, it must also be made available under the GPL v3 licence.
 
-For full details, read the copy of the GPL v3 found in the file named [*LICENCE*](https://github.com/alfarnedo/Web-application-for-chess-endings-training/blob/master/LICENCE)
+For full details, read the copy of the GPL v3 found in the file named [*LICENCE*](https://github.com/alfarnedo/Web-application-for-chess-endings-training/blob/main/LICENSE)
 
 
 
