@@ -8,13 +8,13 @@ To achieve this goal, it implements a set of technologies, such as frameworks, i
 The Stockfish complete source code is located at the following link: [*STOCKFISH*](https://github.com/official-stockfish/Stockfish)  
 
 To carry out this project different books, open codes and tutorials of both GitHub and forums and videos were used, whose links are the following:
-  * https://www.digitalocean.com/community/tutorials/how-to-make-a-web-application-using-flask-in-python-3-es 
-  * https://books.google.es/books?hl=es&lr=&id=cVlPDwAAQBAJ&oi=fnd&pg=PT25&dq=FRAMEWORK+FLASK&ots=xODWal_qa_&sig=Sf99Qq5MN5M-3-nO3brzgxyVmJQ#v=onepage&q=FRAMEWORK%20FLASK&f=false
-  * https://github.com/maksimKorzh/chess_programming
-  * https://j2logo.com/tutorial-flask-leccion-3-formularios-wtforms/
-  * https://www.youtube.com/watch?v=7Oj4LcCE7n8
-  * https://www.youtube.com/watch?v=L20z4gCSfA8
-  * https://www.youtube.com/watch?v=bdkIQsJQvNQ&t=412s
+  * [*TUTORIAL*](https://www.digitalocean.com/community/tutorials/how-to-make-a-web-application-using-flask-in-python-3-es) 
+  * [*BOOK*](https://books.google.es/books?hl=es&lr=&id=cVlPDwAAQBAJ&oi=fnd&pg=PT25&dq=FRAMEWORK+FLASK&ots=xODWal_qa_&sig=Sf99Qq5MN5M-3-nO3brzgxyVmJQ#v=onepage&q=FRAMEWORK%20FLASK&f=false)
+  * [*GITHUB REPOSITORY*](https://github.com/maksimKorzh/chess_programming)
+  * [*TUTORIAL*](https://j2logo.com/tutorial-flask-leccion-3-formularios-wtforms/)
+  * [*YOUTUBE TUTORIAL*](https://www.youtube.com/watch?v=7Oj4LcCE7n8)
+  * [*YOUTUBE TUTORIAL*](https://www.youtube.com/watch?v=L20z4gCSfA8)
+  * [*YOUTUBE TUTORIAL*](https://www.youtube.com/watch?v=bdkIQsJQvNQ&t=412s)  
 
 ## APP DESCRIPTION
 The web application for chess endgame training, object of this work, will integrate three profiles/roles: Unregistered User, Registered User and Application Administrator.
