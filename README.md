@@ -90,14 +90,10 @@ The following packages must be installed on the computer where the web applicati
    * #### DateTime
      To be able to take each of the dates on which either a user registers in the web application, or that a registered user plays a chess ending, the date function of the datetime library is used. For this reason, this library is installed on the computer using the command "pip install DateTime".
 
-Once these packages are installed, first you must run the script installation.py in order to have the database and the necessary tables, for the web application. 
-
-After that, the appChessOnline.py script is executed to run the web application for chess endings training.
-
 ## COMMAND TO RUN THE CHESSONLINEALFARNEDO WEB APPLICATION YOURSELF 
-First you must run the script installation.py in order to have the database and the necessary tables, for the web application. Fo this, you must write to the terminal, specifically in the directory where the file installation.py is located, the following command `python installation.py`. 
+Once the packages, of the section PRE-REQUISITES, are installed; first you must run the script installation.py in order to have the database and the necessary tables, for the web application. Fo this, you must write to the terminal, specifically in the directory where the file installation.py is located, the following command `python installation.py`. 
 
-To run the web application you must write to the terminal, specifically in the directory where the file appChessNew.py is located, the following command `python appChessOnline.py`. 
+After that, the appChessOnline.py script is executed to run the web application for chess endings training. For this, you must write to the terminal, specifically in the directory where the file appChessNew.py is located, the following command `python appChessOnline.py`. 
 
 Example of a directory: `c/Users/Usuario/Documents/ChessOnlineAlfarnedo`
 
