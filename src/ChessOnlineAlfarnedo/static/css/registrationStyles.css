@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Montserrat+Alternates|Poppins&display=swap');
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-family: 'Montserrat Alternates', sans-serif;
+	}
+body{
+  background: url(https://images.unsplash.com/photo-1616996721926-8166c3f7acd5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=889&q=80);
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+}
+
+.capa{
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	background: rgba(0,0,0,0.4);
+	z-index: -1;
+	top: 0;left: 0;
+}
+
+.header{
+	width: 100%;
+	height: 100px;
+	position: fixed;
+	top: 0;left: 0;
+}
+.container{
+	width: 90%;
+	max-width: 1200px;
+	margin: auto;
+}
+
+.container .btn-menu, .logo{
+	float: left;
+	line-height:100px;
+}
+.container .btn-menu, .texto{
+	float: left;
+	line-height:100px;
+}
+
+.container .btn-menu label{
+	color: #fff;
+	font-size: 25px;
+	cursor: pointer;
+}
+.logo h1{
+	position: relative;
+	color: white;
+	top: 35px;
+	font-weight: 400;
+	font-size: 22px;
+	margin-left: 10px;
+}
+.texto h1{
+	z-index: 100;
+	color: white;
+	font-size: 55px;
+	font-weight: bold;
+	right: 150px;
+	top: 150px;
+	border-left: 750px solid transparent;
+}
+.container .menu-simple{
+	float: right;
+	line-height: 100px;
+}
+.container .menu-simple a{
+	display: inline-block;
+	padding: 15px;
+	line-height: normal;
+	text-decoration: none;
+	color: #fff;
+	transition: all 0.3s ease;
+	border-bottom: 2px solid transparent;
+	font-size: 15px;
+	margin-right: 5px;
+}
+.container .menu-simple a:hover{
+	border-bottom: 2px solid #c7c7c7;
+	padding-bottom: 5px;
+}
+
+#btn-menu{
+	display: none;
+}
+
+.menu-desplegable{
+	position: absolute;
+	top: 85px;
+	left:-30px;
+	width: 20%;
+	transform: translateX(-100%);
+	transition: all 0.3s;
+}
+
+#btn-menu:checked ~ .menu-desplegable {
+	transform: translateX(0%);
+}
+
+.menu-desplegable ul {
+	flex-direction: column;
+	background: #1c1c1c;
+	display: flex;
+	list-style: none;
+}
+
+.menu-desplegable ul ul {
+	display: none;
+	background: rgba(0,0,0,0.4);
+}
+
+.menu-desplegable a {
+	display: block;
+	padding: 10px 20px;
+	left:-30px;
+	color: #fff;
+	text-decoration: none;
+}
+
+.menu-desplegable a:hover{
+	background: rgba(0,0,0,0.3);
+}
+
+.menu-desplegable a span {
+	position: absolute;
+	right: 5px;
+	margin-left: 10px;
+}
+
+.menu-desplegable ul li:hover ul {
+	display: none;
+	position: static;
+}
+
+.formulario {
+	position: relative;
+	top: 2px;
+  background: rgba(0,0,0,0);
+  padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 30px white;
+	color: white;
+}
+
+.form-control {
+	background: rgba(0,0,0,0.3);
+	border-style: none;
+	transition: 0.5s ease-in;
+	outline: none;
+	box-shadow: none;
+}
+
+.form-control: focus{
+	background: none;
+	box-shadow: none;
+	outline: none;
+}
+
+.form-control:: placeholder{
+	color: white;
+}
+
+.ingresar {
+  background: #222A3F;
+	padding: 10px;
+	font-size: 16px;
+	font-weight: 700!important;
+	color: white;
+	box-shadow: 0 0 30px rgba(0,0,0,0.568);
+	transition: 0.5s ease-in;
+}
+
+.ingresar: hover {
+	color: white;
+}
+
+.olvide {
+	color:white;
+	text-decoration-style: none;
+	text-decoration-line: none;
+}
+
+.olvide: hover {
+	color: white;
+	text-decoration-style: none;
+	text-decoration-line: none;
+	cursor: pointer;
+}
+
+.registrase {
+	position: relative;
+	top: 10px;
+	color:white;
+	text-decoration-style: none;
+	text-decoration-line: none;
+	font-size: 20px;
+	font-weight: 700!important;
+	padding: 10px;
+	border-radius: 20px;
+	background: rgba(0,0,0,0.5);
+}
+
+.registrase: hover {
+	color: white;
+	text-decoration-style: none;
+	text-decoration-line: none;
+	cursor: pointer;
+}

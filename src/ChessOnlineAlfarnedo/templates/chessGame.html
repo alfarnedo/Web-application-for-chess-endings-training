@@ -1,0 +1,309 @@
+<!-- chessGame.html-->
+<!-- This file contains the code to set a chess game between a user and a chess engine -->
+<html>
+  <head>
+    <title>Chess Game</title>
+
+    <!-- The JQuery library is imported -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <!-- Bootstrap libraries are imported -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.esm.min.js"></script>
+
+    <!-- Bootstrap core CSS library is imported -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Chessjs library is imported -->
+    <script src="./static/js/chess.js"></script>
+
+    <!-- Chessboardjs library is imported -->
+    <link rel="stylesheet" href="./static/css/chessboard-1.0.0.min.css">
+    <script src="./static/js/chessboard-1.0.0.min.js"></script>
+
+    <!-- Own style is imported -->
+    <link rel="stylesheet" href="./static/css/basicChessEndingsStyles.css">
+  </head>
+  <body>
+    <!-- State of the game -->
+    <strong class="status"><div id="status"></div></strong>
+    <!-- Chess board view -->
+    <div id="chess_board" class="chess" style="width: 500px;"></div>
+    <!-- Game controls -->
+    <div style="width: 400px;">
+      <!-- Set or move time or fixed -->
+      <div class="strength-controls">
+        <!-- Move time -->
+        <select id="move_time" class="form-control mr-2">
+          <option value="0">N/A</option>
+          <option value="instant" selected>Instant response</option>
+          <option value="1">1 sec</option>
+          <option value="2">2 sec</option>
+          <option value="3">3 sec</option>
+          <option value="4">4 sec</option>
+          <option value="5">5 sec</option>
+          <option value="6">6 sec</option>
+          <option value="7">7 sec</option>
+          <option value="8">8 sec</option>
+          <option value="9">9 sec</option>
+          <option value="10">10 sec</option>
+        </select>
+        <!-- Fixed depth -->
+        <select id="fixed_depth" class="form-control ml-2">
+          <option value="0">N/A</option>
+          <option value="1">1 ply</option>
+          <option value="2">2 ply</option>
+          <option value="3">3 ply</option>
+          <option value="4">4 ply</option>
+          <option value="5">5 ply</option>
+          <option value="6">6 ply</option>
+          <option value="7">7 ply</option>
+          <option value="8">8 ply</option>
+          <option value="9">9 ply</option>
+          <option value="10">10 ply</option>
+          <option value="11">11 ply</option>
+          <option value="12">12 ply</option>
+        </select>
+      </div>
+      <!-- Buttons for Game control -->
+      <div class="button-group">
+        <button id="new_game" class="btn btn-outline-secondary" style="background-color:black; border-color:white; color:white">New game</button>
+        <button id="make_moveChessGame" class="btn btn-outline-secondary" style="background-color:black; border-color:white; color:white">Make move</button>
+        <button id="take_back" class="btn btn-outline-secondary" style="background-color:black; border-color:white; color:white">Take back</button>
+      </div>
+    </div>
+    <!-- Show game information -->
+    <div class="pgn-style">
+      <hr>
+      <!-- Show PGN -->
+      <div class="mt-2"><strong>PGN:</strong></div>
+      <div id="pgn"></div>
+
+      <!-- Button to download the PGN at any time -->
+      <button id="download_button" class="btn btn-success mt-2">Download</button>
+      <a id="download_link" href="" download="" hidden>your pgn</a>
+    </div>
+  </body>
+  <alfarnedo>
+  </alfarnedo>
+  </html>
+
+  <script>
+
+    var game_over = 0
+
+    function make_moveChessGame() {
+      //An http POST request is made for information to be exchanged, about the status of the game and
+      //about the state of the board, between this make_moveChessGame function of this html file and
+      //the make_moveChessGame function of the py file "appChessOnline"; and thus be able to establish
+      //a game between the user and the chess engine
+      $.post('/make_moveChessGame',{
+      'fen': game.fen(),
+      'gameover' : game.game_over(),
+      'tablas': game.insufficient_material(),
+      'pgn': game.pgn(),
+      'fixed_depth': $('#fixed_depth option:selected').val(),
+      'move_time': $('#move_time option:selected').val()
+    }, function(data) {
+        //The user is shown an animation of what move was made by the chess engine
+        game.move(data.best_move, { sloppy: true })
+        //Chess board status is updated
+        board.position(game.fen());
+        //Chess game information is updated
+        $score.text(data.score);
+        $depth.text(data.depth);
+        $time.text(data.time);
+        $nodes.text(data.nodes);
+        $knps.text(Math.round(Number($nodes.text()) / parseFloat($time.text())) / 1000)
+
+        //Check if the chess game is over or continues
+
+        //If the chess game is over
+        if (game.game_over())
+        {
+          //If the user (the white pieces) has won the game of chess
+          if(data.score == "PovScore(Mate(+1), WHITE)"){
+            alert("YOU WON!");
+            console.log("Win")
+            var estado = "WON";
+            game_over = 0
+            console.log(game_over)
+          }
+          //If the user (the white pieces) has lost the game of chess
+          else if (data.score != "PovScore(Mate(+1), WHITE)"){
+            onsole.log("Game Over")
+            game_over = game_over + 1
+            console.log(game_over)
+          }
+        }
+        if (game_over == 2){
+          game_over = 0
+          alert("GAME IS OVER")
+        }
+
+        //The status of the chess game is updated
+        updateStatus();
+      });
+    }
+
+    //This function resets the game and returns to the starting position
+    $('#new_game').on('click', function() {
+      game.reset();
+      board.position('start');
+    });
+
+    //This function forces the chess engine to make a move
+    $('#make_moveChessGame').on('click', function() {
+      make_moveChessGame();
+    });
+
+    //This function serves for a performed movement can be returned to the previous position
+    $('#take_back').on('click', function() {
+      game.undo();
+      game.undo();
+      board.position(game.fen());
+      updateStatus();
+    });
+
+    //This function is used to disable the "fixed_depth" option once a move time has been selected
+    $('#move_time').on('change', function() {
+      $('#fixed_depth').val('0');
+    });
+
+    //This function is used to disable the "move_time" option once a fixed depth has been selected
+    $('#fixed_depth').on('change', function() {
+      $('#move_time').val('0');
+    });
+
+    //This function can be used to download the PGN at any time
+    $('#download_button').on('click', function() {
+      //Date
+      var date = new Date();
+      //PGN header
+      var pgn_header = '';
+      //Username
+      var user_name = prompt('What is your name?');
+      //Color of the pieces the user has played with
+      var user_color = prompt('What color did you play with? (please type "White" or "Black")');
+
+      //If the user has played with the white pieces
+      if (user_color == 'White')
+      {
+        //PGN header
+        pgn_header = '[White "' + user_name + '"]\n[Black "StockFish"]\n\n';
+        //File name containing the PGN
+        $('#download_link').attr('download', user_name + '_vs_Stockfish_' + date.toString().replace(/\s/g, "_") + '.pgn');
+      }
+
+      //If the user has played with the black pieces
+      else if (user_color == 'Black')
+      {
+        //PGN header
+        pgn_header = '[White "Stockfish"]\n[Black "' + user_name + '"]\n\n';
+        //File name containing the PGN
+        $('#download_link').attr('download', 'Stockfish_vs_' + user_name + '_' + date.toString().replace(/\s/g, "_") + '.pgn');
+      }
+
+      //If the user misspelled the word white or black
+      else
+      {
+        alert('Color is illegal, please type "White" or "Black"');
+        return;
+      }
+
+      //The download link is activated
+      $('#download_link').attr('href', window.URL.createObjectURL(
+        new Blob([pgn_header + game.pgn()], {type: 'text'})
+      ));
+      //You need to "imitate" the click for the download link
+      $('#download_link')[0].click();
+    });
+
+
+    //Game status and chessboard status variables
+    var board = null;
+    var game = new Chess();
+    var $status = $('#status');
+    var $fen = $('#fen');
+    var $pgn = $('#pgn');
+    var $score = $('#score');
+    var $username = $('#username');
+    var $depth = $('#depth');
+    var $time = $('#time');
+    var $nodes = $('#nodes');
+    var $knps = $('#knps');
+
+    //The "onDragStart" function is activated / used when collecting / "eat" a piece of the chessboard
+    function onDragStart (source, piece, position, orientation) {
+      if ((game.turn() === 'w' && piece.search(/^b/) !== -1) ||
+          (game.turn() === 'b' && piece.search(/^w/) !== -1)) {
+        return false
+      }
+    }
+
+    //The "onDrop" function is activated / used when dropping a piece on the chessboard
+    function onDrop (source, target) {
+      var move = game.move({
+        from: source,
+        to: target,
+        promotion: 'q' //NOTE: always promote to a queen for example simplicity
+      })
+
+      //If the movement is illegal
+      if (move === null) return 'snapback'
+      //If the movement is legal, the function "make_moveBasicChessEndings()" is called
+      make_moveChessGame();
+
+      //Chess game status updated
+      updateStatus();
+    }
+
+    //The function "onSnapEnd()" is activated / is used when a piece passes from
+    //one square to another and displays a text with the status of the chess game
+    function onSnapEnd () {
+      board.position(game.fen())
+    }
+
+    //This function is used to update the status of the chess game
+    function updateStatus () {
+      var status = ''
+      var moveColor = 'White'
+      if (game.turn() === 'b') {
+        moveColor = 'Black'
+      }
+      if (game.in_checkmate()) {
+        status = 'Game over, ' + moveColor + ' is in checkmate.'
+      }
+      else if (game.in_draw()) {
+        status = 'Game over, drawn position'
+      }
+      else {
+        status = moveColor + ' to move'
+        if (game.in_check()) {
+          status += ', ' + moveColor + ' is in check'
+        }
+      }
+
+      //The information on the status, fen and pgn elements is updated at all times
+      $status.html(status)
+      $fen.val(game.fen())
+      $pgn.html(game.pgn())
+    }
+
+    //Chess board settings are set
+    var config = {
+      draggable: true,
+      position: 'start',
+      onDragStart: onDragStart,
+      onDrop: onDrop,
+      onSnapEnd: onSnapEnd
+    }
+
+    //An instance of chess board widget is created
+    board = Chessboard('chess_board', config)
+
+    //Chess game status updated
+    updateStatus();
+  </script>

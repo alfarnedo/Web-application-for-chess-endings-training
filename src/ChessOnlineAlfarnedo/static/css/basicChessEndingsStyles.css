@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Montserrat+Alternates|Poppins&display=swap');
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-family: 'Montserrat Alternates', sans-serif;
+	}
+body{
+  background: url(https://images.unsplash.com/photo-1616996721926-8166c3f7acd5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=889&q=80);
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+}
+
+.col {
+  background: rgba(0,0,0,0.5);
+}
+
+.chess {
+  position: relative;
+  top: 45px;
+  left: 50px;
+}
+
+.finalTorre {
+	position: relative;
+	top:-360px;
+	left: 1000px;
+	font-size: 16px;
+}
+
+.finalAlfiles {
+	position: relative;
+	top:-320px;
+	left: 810px;
+	font-size: 16px;
+}
+
+.finalDama {
+	position: relative;
+	top:-280px;
+	left: 595px;
+	font-size: 16px;
+}
+
+.finalAlfilCaballo {
+	position: relative;
+	top:-240px;
+	left: 393px;
+	font-size: 16px;
+}
+
+.finalTorres {
+	position: relative;
+	top:-200px;
+	left: 124px;
+	font-size: 16px;
+}
+
+.strength-controls {
+	position: absolute;
+	top: 568px;
+  left:458px;
+	background-color:black;
+	border-color:white;
+	color:white;
+}
+
+.status {
+  position: relative;
+  top: 25px;
+	left: 250px;
+	color: white;
+	background: rgba(0,0,0,0.5);
+}
+
+.button-group {
+  position: relative;
+  top: 60px;
+	left: 125px;
+	font-size: 16px;
+}
+
+.pgn-style {
+	position: absolute;
+	top: 48px;
+	left: 555px;
+	width: 30%;
+	background-color:rgba(0,0,0,0.568);
+	border-color:white;
+	color:white;
+}
+
+.formulario {
+  background: rgba(0,0,0,0.5);
+  padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 30px rgba(0,0,0,0.568);
+	color: white;
+}
+
+.form-control {
+	background: rgba(0,0,0,0.3);
+	border-style: none;
+	transition: 0.5s ease-in;
+	outline: none;
+	box-shadow: none;
+}
+
+.form-control: focus{
+	background: none;
+	box-shadow: none;
+	outline: none;
+}
+
+.form-control:: placeholder{
+	color: white;
+}
+
+.ingresar {
+  background: #222A3F;
+	padding: 10px;
+	font-size: 16px;
+	font-weight: 700!important;
+	color: white;
+	box-shadow: 0 0 30px rgba(0,0,0,0.568);
+	transition: 0.5s ease-in;
+}
+
+.ingresar: hover {
+	color: white;
+}
+
+.olvide {
+	color:white;
+	text-decoration-style: none;
+	text-decoration-line: none;
+}
+
+.olvide: hover {
+	color: white;
+	text-decoration-style: none;
+	text-decoration-line: none;
+	cursor: pointer;
+}
+
+.registrase {
+	color:white;
+	text-decoration-style: none;
+	text-decoration-line: none;
+	font-size: 20px;
+	font-weight: 700!important;
+	padding: 10px;
+	border-radius: 10px;
+	background: rgba(0,0,0,0.5);
+}
+
+.registrase: hover {
+	color: white;
+	text-decoration-style: none;
+	text-decoration-line: none;
+	cursor: pointer;
+}

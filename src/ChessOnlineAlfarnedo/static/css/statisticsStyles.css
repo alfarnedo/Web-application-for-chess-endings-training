@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Montserrat+Alternates|Poppins&display=swap');
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-family: 'Montserrat Alternates', sans-serif;
+	}
+
+  body{
+    background: url(https://images.unsplash.com/photo-1616996721926-8166c3f7acd5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=889&q=80);
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+  }
+
+  .texto {
+    position: relative;
+    color: white;
+    top:-50px;
+    left:25px;
+
+  }
+
+	.titulo {
+		position: relative;
+		color: white;
+		top:-35px;
+		left:120px;
+
+	}
+
+	.tituloo {
+		position: relative;
+		color: white;
+		top:-510px;
+		left:730px;
+
+	}
+
+	.tituloo2 {
+		position: relative;
+		color: white;
+		top:-510px;
+		left:900px;
+
+	}
+
+	.grafica {
+		position: relative;
+		top: 10px;
+		left:45px;
+		width: 40%;
+	}
+
+	.graficaa {
+		position: relative;
+		top: -430px;
+		left:662px;
+		width: 50%;
+	}
+
+	.graficaaa {
+		position: relative;
+		top: -500px;
+		left:850px;
+		width: 30%;
+	}
+
+	.titulo2 {
+		position: relative;
+		color: white;
+		top:-35px;
+		left:30px;
+	}
+
+	.grafica2 {
+		position: relative;
+		top: -25px;
+		left:50px;
+		width: 30%;
+	}
+
+
+	.finalTorre {
+		position: relative;
+		top:-400px;
+		left: 900px;
+		font-size: 16px;
+	}
+
+	.finalAlfiles {
+		position: relative;
+		top:-360px;
+		left: 700px;
+		font-size: 16px;
+	}
+
+	.finalDama {
+		position: relative;
+		top:-320px;
+		left: 490px;
+		font-size: 16px;
+	}
+
+	.finalAlfilCaballo {
+		position: relative;
+		top:-280px;
+		left: 279px;
+		font-size: 16px;
+	}
+
+	.finalTorres {
+		position: relative;
+		top:-240px;
+		left: 15px;
+		font-size: 16px;
+	}
+
+	.container{
+		width: 90%;
+		max-width: 1200px;
+		margin: auto;
+	}
+
+	.container .menu-simple{
+		float: right;
+		line-height: 100px;
+	}
+	.container .menu-simple a{
+		display: inline-block;
+		padding: 15px;
+		line-height: normal;
+		text-decoration: none;
+		color: #fff;
+		transition: all 0.3s ease;
+		border-bottom: 2px solid transparent;
+		font-size: 15px;
+		margin-right: 5px;
+	}
+	.container .menu-simple a:hover{
+		border-bottom: 2px solid #c7c7c7;
+		padding-bottom: 5px;
+	}

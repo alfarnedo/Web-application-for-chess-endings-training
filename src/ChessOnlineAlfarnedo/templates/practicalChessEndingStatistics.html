@@ -1,0 +1,185 @@
+<!-- practicalChessEndingStatistics.html-->
+<!-- This file contains the code to show the registered user the game statistics using graphs:
+1) The percentage of times the user achieves the goal of each practical chess ending
+2) The average number of moves the user has used to achieve the goal of each practical chess ending-->
+<html>
+<head>
+  <meta charset = "UTF-8">
+
+  <title>Practical Chess Endings Statistics</title>
+
+  <!-- Bootstrap libraries are imported -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.esm.min.js"></script>
+
+  <!-- Bootstrap core CSS library is imported -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Chart.js library is imported to be able to paint graphics in html -->
+  <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+
+  <!-- Own style is imported -->
+  <link rel="stylesheet" href="static/css/statisticsStyles.css">
+</head>
+<body>
+  <div class="container">
+    <nav class="menu-simple">
+      <a href="/indexRegisteredUser">Home</a>
+      <a href="/infoRegisteredUser">About Us</a>
+      <a href="/objective">Objectives of Chess Endings</a>
+    </nav>
+  </div>
+  <div class="texto">
+    <h1> These are your statistics {{session.username}} </h1>
+  </div>
+  <div class="titulo2">
+    <h1>PRACTICAL CHESS ENDINGS</h1>
+  </div>
+  <div class="grafica2">
+    <!-- A canvas tag is created to make a bar graph with the percentages of the number of times
+    the user has achieved the goal of each practical chess ending -->
+    <canvas id="MiGrafica2" height="300" width="300"></canvas>
+  </div>
+  <div class="tituloo2">
+    <h1>NUMBER OF MOVES</h1>
+  </div>
+  <div class="graficaaa">
+    <!-- A canvas tag is created to make a bar graph with the number of moves the user has used
+    to achieve the goal of each practical chess ending -->
+    <canvas id="chart2" height="300" width="300"></canvas>
+  </div>
+
+  <!-- Values stored in session variables are obtained -->
+  <input id="win6" name="win" type="hidden" value={{session.winCaballoYRey}}>
+  <input id="lose6" name="lose" type="hidden" value={{session.loseCaballoYRey}}>
+  <input id="intentos6" name="intentos" type="hidden" value={{session.intentosCaballoYRey}}>
+  <input id="porcentaje6" name="porcentaje5" type="hidden" value={{session.porcentajeCaballoYRey}}>
+  <input id="final6" name="intentos" type="hidden" value={{session.finalCaballoYRey}}>
+
+  <input id="win7" name="win" type="hidden" value={{session.winDamaYRey}}>
+  <input id="lose7" name="lose" type="hidden" value={{session.loseDamaYRey}}>
+  <input id="intentos7" name="intentos" type="hidden" value={{session.intentosDamaYRey}}>
+  <input id="porcentaje7" name="porcentaje5" type="hidden" value={{session.porcentajeDamaYRey}}>
+  <input id="final7" name="intentos" type="hidden" value={{session.finalDamaYRey}}>
+
+  <input id="movimientos6" name="movimientos" type="hidden" value={{session.nummoviCaballoYRey}}>
+  <input id="movimientos7" name="movimientos" type="hidden" value={{session.nummoviDamaYRey}}>
+
+</body>
+<alfarnedo>
+</alfarnedo>
+</html>
+
+<script>
+
+  //We proceed to paint the bar graph with the percentage of times that the user
+  //has achieved the goal of each practical chess ending, using the previous values
+  //obtained from variables type session
+  var miCanvas2 = document.getElementById("MiGrafica2");
+
+  var win6=document.getElementById("win6").value;
+  var lose6=document.getElementById("lose6").value;
+  var intentos6=document.getElementById("intentos6").value;
+  var porcentaje6=document.getElementById("porcentaje6").value;
+  var final6=document.getElementById("final6").value;
+
+  var win7=document.getElementById("win7").value;
+  var lose7=document.getElementById("lose7").value;
+  var intentos7=document.getElementById("intentos7").value;
+  var porcentaje7=document.getElementById("porcentaje7").value;
+  var final7=document.getElementById("final7").value;
+
+  //The graph is made
+  var data = {
+      labels: ["Knight and Pawn Vs Pawn and King","Queen and King Vs Pawn and King"],
+      datasets: [{
+          label: '# Statistics of Practical Chess Endings',
+          data: [porcentaje6,porcentaje7],
+          backgroundColor: [
+          'pink',
+          'blue',
+          ],
+          borderColor: [
+          'white',
+          'white',
+          ],
+          borderWidth: 2
+        }
+    ]
+  };
+
+  var options = {
+    scales: {
+      yAxes: [{
+        ticks: {
+        beginAtZero:true
+        }
+      }]
+    }
+  };
+
+  var chart2 = new Chart(miCanvas2, {
+      type: 'bar',
+      data: data,
+      options: options
+  });
+
+  //We proceed to paint the bar graph with number of moves the user has used
+  //to achieve the goal of each practical chess ending, using the previous values
+  var ctx = document.getElementById("chart2");
+
+  var movimientos6=document.getElementById("movimientos6").value;
+  var movimientos7=document.getElementById("movimientos7").value;
+
+  //The graph is made
+  var data = {
+      labels: ["Knight and Pawn Vs Pawn and King","Queen and King Vs Pawn and King"],
+      datasets: [{
+          label: '# Number of movements used',
+          data: [movimientos6,movimientos7],
+          backgroundColor: [
+          'pink',
+          'blue',
+          ],
+          borderColor: [
+          'white',
+          'white',
+          ],
+          borderWidth: 2
+        },
+        {
+          label: '# Optimal Number of Movements',
+          data: [6, 12],
+          backgroundColor: [
+          'grey',
+          'grey',
+          ],
+          borderColor: [
+          'white',
+          'white',
+          ],
+          borderWidth: 2
+        }
+    ]
+  };
+
+  var options = {
+    scales: {
+      yAxes: [{
+        ticks: {
+        beginAtZero:true
+        }
+      }]
+    }
+  };
+
+  var chart2 = new Chart(ctx, {
+      type: 'bar',
+      data: data,
+      options: options
+  });
+
+</script>

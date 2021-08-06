@@ -1,0 +1,88 @@
+<!-- login.html-->
+<!-- This file contains the code to show the user a login form to the web application -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width-device-width, initial-scale-1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie-edge">
+
+  <title>Log In</title>
+
+  <!-- Bootstrap libraries are imported -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.esm.min.js"></script>
+
+  <!-- Own Style files are imported -->
+  <link rel="stylesheet" href="./static/css/loginStyles.css">
+  <link rel="stylesheet" href="./static/css/fontello.css">
+
+  <!-- The JQuery library is imported -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+</head>
+<body>
+  <header class="header">
+    <input type="checkbox" id="btn-menu">
+    <div class="container">
+      <div class="btn-menu">
+        <label for="btn-menu">☰</label>
+      </div>
+      <div class="logo">
+        <h1>ChessOnlineAlfarnedo</h1>
+      </div>
+
+      <nav class="menu-simple">
+        <a href="/">Home</a>
+        <a href="/info">About Us</a>
+        <a href="https://es.wikipedia.org/wiki/Stockfish" target="_blank">About Stockfish</a>
+      </nav>
+    </div>
+
+    <nav class="menu-desplegable">
+      <ul>
+        <li><a href="/chessGame">Play</a></li>
+        <li class="submenu"><a href="#">Chess Endings<span class="icon-down-open"></a>
+        <ul>
+          <li role="presentation"><a href="/basicChessEndings">Basic Chess Endings</a></li>
+					<li role="presentation"><a href="/practicalChessEnding">Practical Chess Endings</a></li>
+					<li><a href="https://es.wikipedia.org/wiki/Final_(ajedrez)" target="_blank">About Chess Endings</a></li>
+        </ul>
+        </li>
+        <li role="presentation"><a href="/registration">Sign Up</a></li>
+        <li role="presentation"><a href="/login">Log In</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="container">
+    <div class="row justify-content-center pt-5 mt-5 mr-1">
+      <div class="col-md-4 formulario">
+        <!-- The messages.html file is included so that messages appear throughout
+        the use of the application -->
+        {% include "includes/_messages.html" %}
+        <form action="" method="post">
+          <div class="form-group text-center pt-3">
+            <h1 class="text-light">LOG IN</h1>
+          </div>
+          <div class="form-group mx-sm-4 pt-3">
+            <input type="text" name="username" class="form-control" placeholder="Enter your Username" value="{{request.form.username}}">
+          </div>
+          <div class="form-group mx-sm-4 pb-3">
+            <input type="password" name="password" class="form-control" placeholder="Enter your Password" value="{{request.form.password}}">
+          </div>
+          <div class="form-group mx-sm-4 pb-2">
+            <input type="submit" class="btn btn-block ingresar" value="SUBMIT">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="capa"></div>
+  <!-- The file "main.js" is imported -->
+  <script src="./static/js/main.js"></script>
+</body>
+<alfarnedo>
+</alfarnedo>
+</html>

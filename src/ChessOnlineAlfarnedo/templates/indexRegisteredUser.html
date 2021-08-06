@@ -1,0 +1,63 @@
+<!-- indexRegisteredUser.html-->
+<!-- This file contains the code to show the registered user a main menu with all
+the available options that the web application has -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>ChessOnline</title>
+
+	<!-- Own Style files are imported -->
+	<link rel="stylesheet" href="./static/css/indexStyles.css">
+	<link rel="stylesheet" href="./static/css/fontello.css">
+
+	<!-- The JQuery library is imported -->
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+</head>
+<body>
+	<header class="header">
+		<input type="checkbox" id="btn-menu">
+		<div class="container">
+			<div class="btn-menu">
+				<label for="btn-menu">☰</label>
+			</div>
+			<div class="logo">
+				<h1>ChessOnlineAlfarnedo</h1>
+			</div>
+			<nav class="menu-simple">
+				<a href="/indexRegisteredUser">Home</a>
+				<a href="/infoRegisteredUser">About Us</a>
+				<a href="https://es.wikipedia.org/wiki/Stockfish" target="_blank">About Stockfish</a>
+			</nav>
+			<div class="texto">
+				<h1>HEY {{session.username}} IMPROVE YOUR CHESS</h1>
+			</div>
+		</div>
+		<nav class="menu-desplegable">
+			<ul>
+				<li><a href="/chessGame">Play</a></li>
+				<li class="submenu"><a href="#">Chess Endings<span class="icon-down-open"></a>
+				<ul>
+					<li role="presentation"><a href="/basicChessEndingsRegisteredUser">Basic Chess Endings</a></li>
+					<li role="presentation"><a href="/practicalChessEndingRegisteredUser">Practical Chess Endings</a></li>
+					<li><a href="https://es.wikipedia.org/wiki/Final_(ajedrez)" target="_blank">About Chess Endings</a></li>
+				</ul>
+				</li>
+				<li class="submenu"><a href="#">Statistics<span class="icon-down-open"></a>
+				<ul>
+					<li role="presentation"><a href="/basicChessEndingStatistics">Basic Chess Endings</a></li>
+					<li role="presentation"><a href="/practicalChessEndingStatistics">Practical Chess Endings</a></li>
+				</ul>
+				</li>
+				<li role="presentation"><a href="/logout">Log Out</a></li>
+			</ul>
+		</nav>
+	</header>
+	<div class="capa"></div>
+	<!-- The file "main.js" is imported -->
+	<script src="./static/js/main.js"></script>
+</body>
+<alfarnedo>
+</alfarnedo>
+</html>

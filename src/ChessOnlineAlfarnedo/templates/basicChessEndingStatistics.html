@@ -1,0 +1,244 @@
+<!-- basicChessEndingStatistics.html-->
+<!-- This file contains the code to show the registered user the game statistics using graphs:
+1) The percentage of times the user achieves the goal of each basic chess ending
+2) The average number of moves the user has used to achieve the goal of each basic chess ending-->
+<html>
+<head>
+  <meta charset = "UTF-8">
+
+  <title>Basic Chess Endings Statistics</title>
+
+  <!-- Bootstrap libraries are imported -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.esm.min.js"></script>
+
+  <!-- Bootstrap core CSS library is imported -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Chart.js library is imported to be able to paint graphics in html -->
+  <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+
+  <!-- Own style is imported -->
+  <link rel="stylesheet" href="./static/css/statisticsStyles.css">
+</head>
+<body>
+  <div class="container">
+    <nav class="menu-simple">
+      <a href="/indexRegisteredUser">Home</a>
+      <a href="/infoRegisteredUser">About Us</a>
+      <a href="/objective">Objectives of Chess Endings</a>
+    </nav>
+  </div>
+  <div class="texto">
+    <h1> These are your statistics {{session.username}} </h1>
+  </div>
+  <div class="titulo">
+    <h1>BASIC CHESS ENDINGS</h1>
+  </div>
+  <div class="grafica">
+    <!-- A canvas tag is created to make a bar graph with the percentages of the number of times
+    the user has achieved the goal of each basic chess ending -->
+    <canvas id="MiGrafica" width="400" height="300"></canvas>
+  </div>
+  <div class="tituloo">
+    <h1>NUMBER OF MOVES</h1>
+  </div>
+  <div class="graficaa">
+    <!-- A canvas tag is created to make a bar graph with the number of moves the user has used
+    to achieve the goal of each basic chess ending -->
+    <canvas id="chart1" width="400" height="200"></canvas>
+  </div>
+
+  <!-- Values stored in session variables are obtained -->
+  <input id="win" name="win" type="hidden" value={{session.win}}>
+  <input id="lose" name="lose" type="hidden" value={{session.lose}}>
+  <input id="intentos" name="intentos" type="hidden" value={{session.intentos}}>
+  <input id="porcentaje" name="porcentaje" type="hidden" value={{session.porcentaje}}>
+  <input id="final" name="intentos" type="hidden" value={{session.final}}>
+
+  <input id="win2" name="win" type="hidden" value={{session.winAlfiles}}>
+  <input id="lose2" name="lose" type="hidden" value={{session.loseAlfiles}}>
+  <input id="intentos2" name="intentos" type="hidden" value={{session.intentosAlfiles}}>
+  <input id="porcentaje2" name="porcentaje2" type="hidden" value={{session.porcentajeAlfiles}}>
+  <input id="final2" name="intentos" type="hidden" value={{session.finalAlfiles}}>
+
+  <input id="win3" name="win" type="hidden" value={{session.winDama}}>
+  <input id="lose3" name="lose" type="hidden" value={{session.loseDama}}>
+  <input id="intentos3" name="intentos" type="hidden" value={{session.intentosDama}}>
+  <input id="porcentaje3" name="porcentaje3" type="hidden" value={{session.porcentajeDama}}>
+  <input id="final3" name="intentos" type="hidden" value={{session.finalDama}}>
+
+  <input id="win4" name="win" type="hidden" value={{session.winCaballo}}>
+  <input id="lose4" name="lose" type="hidden" value={{session.loseCaballo}}>
+  <input id="intentos4" name="intentos" type="hidden" value={{session.intentosCaballo}}>
+  <input id="porcentaje4" name="porcentaje4" type="hidden" value={{session.porcentajeCaballo}}>
+  <input id="final4" name="intentos" type="hidden" value={{session.finalCaballo}}>
+
+  <input id="win5" name="win" type="hidden" value={{session.winTorres}}>
+  <input id="lose5" name="lose" type="hidden" value={{session.loseTorres}}>
+  <input id="intentos5" name="intentos" type="hidden" value={{session.intentosTorres}}>
+  <input id="porcentaje5" name="porcentaje5" type="hidden" value={{session.porcentajeTorres}}>
+  <input id="final5" name="intentos" type="hidden" value={{session.finalTorres}}>
+
+  <input id="movimientos" name="movimientos" type="hidden" value={{session.nummoviTorre}}>
+  <input id="movimientos2" name="movimientos" type="hidden" value={{session.nummoviAlfiles}}>
+  <input id="movimientos3" name="movimientos" type="hidden" value={{session.nummoviDama}}>
+  <input id="movimientos4" name="movimientos" type="hidden" value={{session.nummoviCaballo}}>
+  <input id="movimientos5" name="movimientos" type="hidden" value={{session.nummoviTorres}}>
+</body>
+<alfarnedo>
+</alfarnedo>
+</html>
+
+<script>
+
+  //We proceed to paint the bar graph with the percentage of times that the user
+  //has achieved the goal of each basic chess ending, using the previous values
+  //obtained from variables type session
+  var miCanvas = document.getElementById("MiGrafica");
+
+  var win=document.getElementById("win").value;
+  var lose=document.getElementById("lose").value;
+  var intentos=document.getElementById("intentos").value;
+  var porcentaje=document.getElementById("porcentaje").value;
+  var final=document.getElementById("final").value;
+
+  var win2=document.getElementById("win2").value;
+  var lose2=document.getElementById("lose2").value;
+  var intentos2=document.getElementById("intentos2").value;
+  var porcentaje2=document.getElementById("porcentaje2").value;
+  var final2=document.getElementById("final2").value;
+
+  var win3=document.getElementById("win3").value;
+  var lose3=document.getElementById("lose3").value;
+  var intentos3=document.getElementById("intentos3").value;
+  var porcentaje3=document.getElementById("porcentaje3").value;
+  var final3=document.getElementById("final3").value;
+
+  var win4=document.getElementById("win4").value;
+  var lose4=document.getElementById("lose4").value;
+  var intentos4=document.getElementById("intentos4").value;
+  var porcentaje4=document.getElementById("porcentaje4").value;
+  var final4=document.getElementById("final4").value;
+
+  var win5=document.getElementById("win5").value;
+  var lose5=document.getElementById("lose5").value;
+  var intentos5=document.getElementById("intentos5").value;
+  var porcentaje5=document.getElementById("porcentaje5").value;
+  var final5=document.getElementById("final5").value;
+
+  //The graph is made
+  var data = {
+      labels: ["Rook and King Vs King","Bishop and King Vs King", "Queen and King Vs King", "Bishop, Knight and King Vs King", "Rooks and King Vs King"],
+      datasets: [{
+          label: '# Statistics of Basic Chess Endings',
+          data: [porcentaje,porcentaje2,porcentaje3,porcentaje4,porcentaje5],
+          backgroundColor: [
+          'red',
+          'blue',
+          'green',
+          'pink',
+          'yellow',
+          ],
+          borderColor: [
+          'white',
+          'white',
+          'white',
+          'white',
+          'white',
+          ],
+          borderWidth: 2
+        }
+    ]
+  };
+
+  var options = {
+    scales: {
+      yAxes: [{
+        ticks: {
+        beginAtZero:true
+        }
+      }]
+    }
+  };
+
+  var chart = new Chart(miCanvas, {
+      type: 'bar',
+      data: data,
+      options: options
+  });
+
+  //We proceed to paint the bar graph with number of moves the user has used
+  //to achieve the goal of each basic chess ending, using the previous values
+  var ctx = document.getElementById("chart1");
+
+  var movimientos=document.getElementById("movimientos").value;
+  var movimientos2=document.getElementById("movimientos2").value;
+  var movimientos3=document.getElementById("movimientos3").value;
+  var movimientos4=document.getElementById("movimientos4").value;
+  var movimientos5=document.getElementById("movimientos5").value;
+
+  //The graph is made
+  var data = {
+      labels: ["Rook and King Vs King","Bishop and King Vs King", "Queen and King Vs King", "Bishop, Knight and King Vs King", "Rooks and King Vs King"],
+      datasets: [{
+          label: '# Number of movements used',
+          data: [movimientos,movimientos2,movimientos3,movimientos4,movimientos5],
+          backgroundColor: [
+          'red',
+          'blue',
+          'green',
+          'pink',
+          'yellow',
+          ],
+          borderColor: [
+          'white',
+          'white',
+          'white',
+          'white',
+          'white',
+          ],
+          borderWidth: 2
+        },
+        {
+          label: '# Optimal Number of Movements',
+          data: [17, 20, 13, 26, 6],
+          backgroundColor: [
+          'grey',
+          'grey',
+          'grey',
+          'grey',
+          'grey',
+          ],
+          borderColor: [
+          'white',
+          'white',
+          'white',
+          'white',
+          'white',
+          ],
+          borderWidth: 2
+        }
+    ]
+  };
+
+  var options = {
+    scales: {
+      yAxes: [{
+        ticks: {
+        beginAtZero:true
+        }
+      }]
+    }
+  };
+
+  var chart1 = new Chart(ctx, {
+      type: 'bar',
+      data: data,
+      options: options
+  });
+
+</script>

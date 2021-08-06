@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Montserrat+Alternates|Poppins&display=swap');
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-family: 'Montserrat Alternates', sans-serif;
+	}
+
+	body{
+		background: url(https://images.unsplash.com/photo-1616996721926-8166c3f7acd5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=889&q=80);
+		background-size: 100vw 100vh;
+		background-repeat: no-repeat;
+	}
+
+	.capa{
+		position: absolute;
+		width: 100%;
+		height: 100vh;
+		background: rgba(0,0,0,0.4);
+		z-index: -1;
+		top: 0;left: 0;
+	}
+
+	.header{
+		width: 100%;
+		height: 100px;
+		position: fixed;
+		top: 0;left: 0;
+	}
+	.container{
+		width: 90%;
+		max-width: 1200px;
+		margin: auto;
+	}
+
+	.container .btn-menu, .logo{
+		float: left;
+		line-height:100px;
+	}
+	.container .btn-menu, .texto{
+		float: left;
+		line-height:100px;
+	}
+
+	.container .btn-menu label{
+		color: #fff;
+		font-size: 25px;
+		cursor: pointer;
+	}
+	.logo h1{
+		color: white;
+		font-weight: 400;
+		font-size: 22px;
+		margin-left: 10px;
+	}
+	.texto h1{
+		color: white;
+		font-size: 30px;
+		font-weight: bold;
+		right: 20px;
+		top: 150px;
+		border-left: 500px solid transparent;
+	}
+	.container .menu-simple{
+		float: right;
+		line-height: 100px;
+	}
+	.container .menu-simple a{
+		display: inline-block;
+		padding: 15px;
+		line-height: normal;
+		text-decoration: none;
+		color: #fff;
+		transition: all 0.3s ease;
+		border-bottom: 2px solid transparent;
+		font-size: 15px;
+		margin-right: 5px;
+	}
+	.container .menu-simple a:hover{
+		border-bottom: 2px solid #c7c7c7;
+		padding-bottom: 5px;
+	}
+
+
+	#btn-menu{
+		display: none;
+	}
+
+	.menu-desplegable{
+		position: absolute;
+		top: 65px;
+		left: 0px;
+		width: 20%;
+		transform: translateX(-100%);
+		transition: all 0.3s;
+	}
+
+	#btn-menu:checked ~ .menu-desplegable {
+		transform: translateX(0%);
+	}
+
+	.menu-desplegable ul {
+		flex-direction: column;
+		background: #1c1c1c;
+		display: flex;
+		list-style: none;
+	}
+
+	.menu-desplegable ul ul {
+		display: none;
+		background: rgba(0,0,0,0.4);
+	}
+
+	.menu-desplegable a {
+		display: block;
+		padding: 15px 20px;
+		color: #fff;
+		text-decoration: none;
+	}
+
+	.menu-desplegable a:hover{
+		background: rgba(0,0,0,0.3);
+	}
+
+	.menu-desplegable a span {
+		position: absolute;
+		right: 5px;
+		margin-left: 10px;
+	}
+
+	.menu-desplegable ul li:hover ul {
+		display: none;
+		position: static;
+	}
