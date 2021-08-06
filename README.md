@@ -5,7 +5,7 @@
 
 To achieve this goal, it implements a set of technologies, such as frameworks, in this case Flask, as well as the adoption of the MySQL database and the latest version of the Stockfish-13 chess engine, which presents a high level of ELO and score and introduces the UCI protocol (Universal Chess Interface) that facilitates its use and access, and PGN (Portable Game Notation) and FEN (Forsyth-Edwards Notation) formats with which, respectively, the moves made during the game are collected and the state of the board is known at each moment of the game. 
 
-The Stockfish complete source code is located at the following link: https://github.com/official-stockfish/Stockfish 
+The Stockfish complete source code is located at the following link: [*STOCKFISH*](https://github.com/official-stockfish/Stockfish)  
 
 To carry out this project different books, open codes and tutorials of both GitHub and forums and videos were used, whose links are the following:
   * https://www.digitalocean.com/community/tutorials/how-to-make-a-web-application-using-flask-in-python-3-es 
