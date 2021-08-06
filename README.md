@@ -46,8 +46,8 @@ The web application for chess endgame training, object of this work, will integr
   * A Stockfish link, a link to information on what Stockfish is.
   
 3) The Administrator will be the one who:
-  * Install the program by following the steps indicated in the next section "FILES". 
-  * View the code developed to implement the web application, called appChessOnline.py, as indicated in the next section "FILES"
+  * Install the program.
+  * View the code developed to implement the web application. 
   * Can use the database. 
   * Can modify the database, either by adding new tables or by removing the tables that are created automatically by running the script Instalacion.py, and creating your own (for this you must make changes to the script called appChessOnline.py).  
   * Visualize the database manually, if the required packages are installed, and be able to have control of:  
